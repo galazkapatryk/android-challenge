@@ -6,7 +6,7 @@ object Modules {
     val app = ":app"
     val data = ":data"
     val network = ":network"
-    val repository = ":repository"
+    val eventRepository = ":eventrepository"
     val schedule = ":schedule"
     val events = ":events"
     val playback = ":playback"
