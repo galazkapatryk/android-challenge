@@ -28,6 +28,8 @@ dependencies {
     implementation Libraries.rxkotlin
     implementation Libraries.rxjava
     implementation Libraries.koinAndroid
-    implementation project(path: Modules.network)
+    testImplementation TestLibraries.mockitoKotlin
+    testImplementation TestLibraries.junit
+    implementation project(path: Modules.eventRepository)
     implementation project(path: Modules.data)
 }

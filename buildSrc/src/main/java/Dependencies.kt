@@ -8,7 +8,7 @@ object Modules {
     val network = ":network"
     val eventRepository = ":eventrepository"
     val schedule = ":schedule"
-    val events = ":events"
+    val eventscreen = ":eventscreen"
     val playback = ":playback"
 }
 
@@ -65,7 +65,6 @@ object SupportLibraries {
 
 object TestLibraries {
     val junit = "junit:junit:${Versions.junit}"
-    val assertjCore = "org.assertj:assertj-core:${Versions.assertjCore}"
     val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"
     val mockitoInline = "org.mockito:mockito-inline:${Versions.mockitoInline}"
 }
