@@ -1,0 +1,39 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+
+    defaultConfig {
+        buildConfigField("String", "API_URL", "\"https://us-central1-dazn-sandbox.cloudfunctions.net/\"")
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode Releases.versionCode
+        versionName Releases.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Libraries.kotlin
+    implementation Libraries.retrofit
+    implementation Libraries.loggingInterceptor
+    implementation Libraries.rxjavaAdapter
+    implementation Libraries.rxkotlin
+    implementation Libraries.rxjava
+    implementation Libraries.koinAndroid
+    implementation Libraries.gson
+    implementation Libraries.gsonConverter
+    implementation project(path: Modules.data)
+
+}

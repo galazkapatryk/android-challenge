@@ -5,6 +5,7 @@ object ApplicationId {
 object Modules {
     val app = ":app"
     val data = ":data"
+    val network = ":network"
     val repository = ":repository"
     val schedule = ":schedule"
     val events = ":events"
@@ -18,7 +19,6 @@ object Releases {
 
 object Versions {
     val gradle = "3.4.0"
-
     val compileSdk = 28
     val minSdk = 21
     val targetSdk = 28
@@ -38,6 +38,7 @@ object Versions {
     val mockitoInline = "2.24.5"
     val material = "1.0.0"
     val constraint = "1.1.3"
+    val gson = "2.8.5"
 }
 
 object Libraries {
@@ -50,6 +51,8 @@ object Libraries {
     val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
     val koinAndroid = "org.koin:koin-android:${Versions.koin}"
+    val gson = "com.google.code.gson:gson:${Versions.gson}"
+    val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
 }
 
 object SupportLibraries {
