@@ -23,10 +23,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Libraries.kotlin
     implementation Libraries.rxjava
     implementation Libraries.rxkotlin
+    implementation SupportLibraries.fragment
     implementation SupportLibraries.appcompat
     implementation SupportLibraries.recyclerview
 }

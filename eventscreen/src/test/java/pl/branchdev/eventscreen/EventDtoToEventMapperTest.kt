@@ -4,9 +4,6 @@ import junit.framework.Assert.assertTrue
 import org.junit.Test
 import pl.branchdev.data.EventDto
 import pl.branchdev.eventscreen.domain.mapper.EventDtoToEventMapper
-import pl.branchdev.eventscreen.domain.mapper.EventDtoToEventMapper.API_DATE_FORMAT
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class EventDtoToEventMapperTest {
@@ -65,51 +62,6 @@ class EventDtoToEventMapperTest {
         val eventDto = EventDto(date = "19 june 2019", subtitle = "", title = "", id = "", imageUrl = "", videoUrl = "")
         val event = EventDtoToEventMapper.mapToEvent(eventDto)
         assertTrue(event.dateInformation == "")
-    }
-
-    @Test
-    fun `when EventDto with passed correct today 4pm date it should convert to "Today, 16 00"`() {
-        val todayDate = SimpleDateFormat(API_DATE_FORMAT, Locale.GERMAN).parse("2019-04-25T01:39:44.970Z")
-        val eventDto = EventDto(
-            date = "2019-04-25T16:00:00.970Z",
-            subtitle = "",
-            title = "",
-            id = "",
-            imageUrl = "",
-            videoUrl = ""
-        )
-        val event = EventDtoToEventMapper.mapToEvent(eventDto)
-        assertTrue(event.dateInformation == "Today, 16:00")
-    }
-
-    @Test
-    fun `when EventDto with passed correct yesterday 4pm date it should convert to "Yesterday, 16 00"`() {
-        val todayDate = SimpleDateFormat(API_DATE_FORMAT, Locale.GERMAN).parse("2019-04-25T01:39:44.970Z")
-        val eventDto = EventDto(
-            date = "2019-04-24T16:00:00.970Z",
-            subtitle = "",
-            title = "",
-            id = "",
-            imageUrl = "",
-            videoUrl = ""
-        )
-        val event = EventDtoToEventMapper.mapToEvent(eventDto)
-        assertTrue(event.dateInformation == "Yesterday, 16:00")
-    }
-
-    @Test
-    fun `when EventDto with passed correct date other than today and yesterday it should return correct formatted date"`() {
-        val todayDate = SimpleDateFormat(API_DATE_FORMAT, Locale.GERMAN).parse("2019-04-27T01:39:44.970Z")
-        val eventDto = EventDto(
-            date = "2019-03-25T16:00:00.970Z",
-            subtitle = "",
-            title = "",
-            id = "",
-            imageUrl = "",
-            videoUrl = ""
-        )
-        val event = EventDtoToEventMapper.mapToEvent(eventDto)
-        assertTrue(event.dateInformation == "25.03.2019")
     }
 
     @Test

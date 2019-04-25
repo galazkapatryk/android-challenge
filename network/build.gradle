@@ -24,7 +24,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Libraries.kotlin
     implementation Libraries.retrofit
     implementation Libraries.loggingInterceptor
@@ -32,6 +31,7 @@ dependencies {
     implementation Libraries.rxkotlin
     implementation Libraries.rxjava
     implementation Libraries.koinAndroid
+    implementation Libraries.koinScope
     implementation Libraries.gson
     implementation Libraries.gsonConverter
     implementation project(path: Modules.data)

@@ -23,33 +23,9 @@ object EventDtoToEventMapper {
         return try {
             val parsedDate = SimpleDateFormat(API_DATE_FORMAT, Locale.GERMAN).parse(date)
             val currentDate = Date()
-            when {
-                isSameDay(parsedDate, currentDate) -> createTodayDateString(parsedDate)
-                isOneDayBefore(parsedDate, currentDate) -> createYesterdayDateString(parsedDate)
-                else -> formatDateToString(parsedDate, MONTH_DAY_YEAR_FORMAT)
-            }
+            return EventDateConverter.convertDateToDateInformation(currentDate, parsedDate)
         } catch (exception: Exception) {
             ""
-        }
-    }
-
-    private fun formatDateToString(date: Date, format: String): String =
-        SimpleDateFormat(format, Locale.GERMAN).format(date)
-
-    private fun createTodayDateString(date: Date) =
-        "Today, ${formatDateToString(date, HOUR_MINUTES_FORMAT)}"
-
-    private fun createYesterdayDateString(date: Date) =
-        "Yesterday, ${formatDateToString(date, HOUR_MINUTES_FORMAT)}"
-
-
-    private fun isOneDayBefore(firstDate: Date, secondDate: Date): Boolean {
-        return secondDate.day - firstDate.day == 1
-    }
-
-    private fun isSameDay(firstDate: Date, secondDate: Date): Boolean {
-        SimpleDateFormat("yyyyMMdd").run {
-            return this.format(firstDate) == this.format(secondDate)
         }
     }
 }

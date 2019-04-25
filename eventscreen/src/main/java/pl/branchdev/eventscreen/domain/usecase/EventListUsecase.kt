@@ -8,7 +8,7 @@ import pl.branchdev.eventscreen.model.Event
 import java.text.SimpleDateFormat
 import java.util.*
 
-class EventListUsecase(val eventRepository: EventRepository) : BaseEventListUsecase {
+class EventListUsecase(private val eventRepository: EventRepository) : BaseEventListUsecase {
     private val dateComperator =
         compareBy<EventDto> {
             SimpleDateFormat(EventDtoToEventMapper.API_DATE_FORMAT, Locale.GERMAN).parse(it.date).time
