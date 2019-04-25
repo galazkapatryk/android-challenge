@@ -3,7 +3,7 @@ package pl.branchdev.eventscreen.domain.mapper
 import pl.branchdev.data.EventDto
 import pl.branchdev.eventscreen.model.Event
 
-class EventDtoToEventMapper {
+object EventDtoToEventMapper {
     fun mapToEvent(eventDto: EventDto): Event {
         return Event(
             title = eventDto.title ?: "",
