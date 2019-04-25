@@ -21,7 +21,6 @@ object EventDtoToEventMapper {
     private fun convertDateToDateInformation(date: String): String {
         return try {
             val parsedDate = SimpleDateFormat(API_DATE_FORMAT, Locale.GERMAN).parse(date)
-
             val currentDate = Date()
             when {
                 isSameDay(parsedDate, currentDate) -> createTodayDateString(parsedDate)
@@ -44,9 +43,7 @@ object EventDtoToEventMapper {
 
 
     private fun isOneDayBefore(firstDate: Date, secondDate: Date): Boolean {
-        SimpleDateFormat("yyyyMMdd").run {
             return secondDate.day - firstDate.day == 1
-        }
     }
 
     private fun isSameDay(firstDate: Date, secondDate: Date): Boolean {
