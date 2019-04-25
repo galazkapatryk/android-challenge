@@ -40,6 +40,20 @@ class EventDtoToEventMapperTest {
     }
 
     @Test
+    fun `when EventDto with videoUrl null passed to mapper it should return Event object with empty videoUrl`() {
+        val eventDto = EventDto(videoUrl = null, id = "", title = "", date = "", imageUrl = "", subtitle = "")
+        val event = EventDtoToEventMapper.mapToEvent(eventDto)
+        assertTrue(event.videoUrl == "")
+    }
+
+    @Test
+    fun `when EventDto with videoUrl xyz passed to mapper it should return Event object with xyz videoUrl`() {
+        val eventDto = EventDto(videoUrl = "xyz", id = "", title = "", date = "", imageUrl = "", subtitle = "")
+        val event = EventDtoToEventMapper.mapToEvent(eventDto)
+        assertTrue(event.videoUrl == "xyz")
+    }
+
+    @Test
     fun `when EventDto with date null passed to mapper it should return Event object with empty dateInformation`() {
         val eventDto = EventDto(date = null, subtitle = "", title = "", id = "", imageUrl = "", videoUrl = "")
         val event = EventDtoToEventMapper.mapToEvent(eventDto)
