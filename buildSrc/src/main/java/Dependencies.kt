@@ -10,6 +10,7 @@ object Modules {
     val schedule = ":schedule"
     val eventscreen = ":eventscreen"
     val playback = ":playback"
+    val androidCommon = ":common:android_common"
 }
 
 object Releases {

@@ -1,1 +1,1 @@
-include Modules.app, Modules.data, Modules.network, Modules.eventRepository, Modules.eventscreen
+include Modules.app, Modules.data, Modules.network, Modules.eventRepository, Modules.eventscreen, Modules.androidCommon

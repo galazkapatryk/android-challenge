@@ -25,13 +25,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Libraries.kotlin
-    implementation Libraries.rxkotlin
     implementation Libraries.rxjava
-    implementation Libraries.koinAndroid
-    testImplementation TestLibraries.mockitoKotlin
-    testImplementation TestLibraries.junit
-    implementation project(path: Modules.eventRepository)
-    implementation project(path: Modules.data)
-    implementation project(path: Modules.androidCommon)
-
+    implementation Libraries.rxkotlin
+    implementation SupportLibraries.appcompat
+    implementation SupportLibraries.recyclerview
 }
