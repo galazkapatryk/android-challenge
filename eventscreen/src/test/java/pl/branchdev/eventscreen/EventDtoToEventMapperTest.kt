@@ -4,6 +4,7 @@ import junit.framework.Assert.assertTrue
 import org.junit.Test
 import pl.branchdev.data.EventDto
 import pl.branchdev.eventscreen.domain.mapper.EventDtoToEventMapper
+import pl.branchdev.eventscreen.domain.mapper.EventDtoToEventMapper.API_DATE_FORMAT
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -71,7 +72,7 @@ class EventDtoToEventMapperTest {
     fun `when EventDto with passed correct yesterday 4pm date it should convert to "Yesterday, 16 00"`() {
         val todayDate = SimpleDateFormat(API_DATE_FORMAT, Locale.GERMAN).parse("2019-04-25T01:39:44.970Z")
         val eventDto = EventDto(
-            date = "2019-03-25T16:00:00.970Z",
+            date = "2019-04-24T16:00:00.970Z",
             subtitle = "",
             title = "",
             id = "",
