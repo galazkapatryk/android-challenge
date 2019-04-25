@@ -6,17 +6,15 @@ import pl.branchdev.eventrepository.EventRepository
 import pl.branchdev.eventscreen.domain.mapper.EventDtoToEventMapper
 import pl.branchdev.eventscreen.model.Event
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
-class EventListUsecase(val eventRepository: EventRepository) {
+class EventListUsecase(val eventRepository: EventRepository) : BaseEventListUsecase {
     private val dateComperator =
         compareBy<EventDto> {
             SimpleDateFormat(EventDtoToEventMapper.API_DATE_FORMAT, Locale.GERMAN).parse(it.date).time
         }
 
-    fun getEvents(): Single<List<Event>> {
+    override fun getEvents(): Single<List<Event>> {
         return eventRepository.getEvents()
             .map { orderByDateAscending(it) }
             .map { eventsDtoList -> eventsDtoList.map { EventDtoToEventMapper.mapToEvent(it) } }

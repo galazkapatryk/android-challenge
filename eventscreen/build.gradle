@@ -27,6 +27,7 @@ dependencies {
     implementation Libraries.kotlin
     implementation Libraries.rxkotlin
     implementation Libraries.rxjava
+    implementation Libraries.rxandroid
     implementation Libraries.koinAndroid
     testImplementation TestLibraries.mockitoKotlin
     testImplementation TestLibraries.junit

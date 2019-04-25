@@ -40,6 +40,7 @@ object Versions {
     val material = "1.0.0"
     val constraint = "1.1.3"
     val gson = "2.8.5"
+    val rxandroid = "2.0.2"
 }
 
 object Libraries {
@@ -47,6 +48,7 @@ object Libraries {
     val rxjava = "io.reactivex.rxjava2:rxjava:${Versions.rxjava}"
     val rxkotlin = "io.reactivex.rxjava2:rxkotlin:${Versions.rxkotlin}"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    val rxandroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxandroid}"
     val rxjavaAdapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptor}"
     val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
