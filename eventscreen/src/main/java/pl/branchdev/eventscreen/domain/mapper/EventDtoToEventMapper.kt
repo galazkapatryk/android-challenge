@@ -14,7 +14,8 @@ object EventDtoToEventMapper {
             title = eventDto.title ?: "",
             subtitle = eventDto.subtitle ?: "",
             thumbnailUrl = eventDto.imageUrl ?: "",
-            dateInformation = eventDto.date?.let { convertDateToDateInformation(it) } ?: ""
+            dateInformation = eventDto.date?.let { convertDateToDateInformation(it) } ?: "",
+            videoUrl = eventDto.videoUrl ?: ""
         )
     }
 
@@ -43,7 +44,7 @@ object EventDtoToEventMapper {
 
 
     private fun isOneDayBefore(firstDate: Date, secondDate: Date): Boolean {
-            return secondDate.day - firstDate.day == 1
+        return secondDate.day - firstDate.day == 1
     }
 
     private fun isSameDay(firstDate: Date, secondDate: Date): Boolean {
