@@ -49,6 +49,14 @@ class EventDtoToEventMapperTest {
     }
 
     @Test
+    fun `when EventDto with date incorrect passed to mapper it should return Event object with empty dateInformation`() {
+        val eventDto = EventDto(date = "19 june 2019", subtitle = "", title = "", id = "", imageUrl = "", videoUrl = "")
+        val eventDtoMapper = EventDtoToEventMapper()
+        val event = eventDtoMapper.mapToEvent(eventDto)
+        assertTrue(event.dateInformation == "")
+    }
+
+    @Test
     fun `when EventDto with imageurl xyz passed to mapper it should return Event object with xyz thumbnailUrl`() {
         val eventDto = EventDto(id = "", subtitle = "", title = "", date = "", imageUrl = "xyz", videoUrl = "")
         val eventDtoMapper = EventDtoToEventMapper()
