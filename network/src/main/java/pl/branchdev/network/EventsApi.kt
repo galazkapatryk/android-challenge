@@ -2,7 +2,6 @@ package pl.branchdev.network
 
 import io.reactivex.Single
 import pl.branchdev.data.EventDto
-import pl.branchdev.data.VideoEventDto
 import pl.branchdev.network.config.ApiConfig
 import retrofit2.http.GET
 
@@ -11,5 +10,5 @@ interface EventsApi {
     fun getSchedule(): Single<List<EventDto>>
 
     @GET(ApiConfig.EVENTS_URL)
-    fun getEvents(): Single<List<VideoEventDto>>
+    fun getEvents(): Single<List<EventDto>>
 }
