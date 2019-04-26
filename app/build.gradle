@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Versions.compileSdk
@@ -10,6 +11,7 @@ android {
         targetSdkVersion Versions.targetSdk
         versionCode Releases.versionCode
         versionName Releases.versionName
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -26,8 +28,21 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Libraries.kotlin
+    implementation Libraries.koinAndroid
+    implementation Libraries.koinScope
     implementation SupportLibraries.appcompat
     implementation SupportLibraries.material
     implementation SupportLibraries.constraint
+    implementation SupportLibraries.multiDex
+    implementation SupportLibraries.fragment
     testImplementation TestLibraries.junit
+    implementation SupportLibraries.navigationFragment
+    implementation SupportLibraries.navigationUi
+    implementation project(path: Modules.eventRepository)
+    implementation project(path: Modules.data)
+    implementation project(path: Modules.androidCommon)
+    implementation project(path: Modules.eventscreen)
+    implementation project(path: Modules.network)
+    implementation Libraries.glide
+    kapt Libraries.glideCompiler
 }

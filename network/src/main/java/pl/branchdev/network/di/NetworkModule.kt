@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.dsl.module
+import org.koin.dsl.module.module
 import pl.branchdev.network.BuildConfig
 import pl.branchdev.network.EventsApi
 import retrofit2.Retrofit

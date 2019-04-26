@@ -8,7 +8,7 @@ object Modules {
     val network = ":network"
     val eventRepository = ":eventrepository"
     val schedule = ":schedule"
-    val events = ":events"
+    val eventscreen = ":eventscreen"
     val playback = ":playback"
     val androidCommon = ":common:android_common"
 }
@@ -32,7 +32,7 @@ object Versions {
     val retrofit = "2.5.0"
     val loggingInterceptor = "3.12.1"
     val glide = "4.9.0"
-    val koin = "2.0.0-beta-1"
+    val koin = "1.0.2"
     val junit = "4.12"
     val assertjCore = "3.12.0"
     val mockitoKotlin = "2.1.0"
@@ -40,6 +40,10 @@ object Versions {
     val material = "1.0.0"
     val constraint = "1.1.3"
     val gson = "2.8.5"
+    val rxandroid = "2.0.2"
+    val navigation = "1.0.0"
+    val multiDex = "2.0.0"
+    val fragment = "1.0.0"
 }
 
 object Libraries {
@@ -47,11 +51,13 @@ object Libraries {
     val rxjava = "io.reactivex.rxjava2:rxjava:${Versions.rxjava}"
     val rxkotlin = "io.reactivex.rxjava2:rxkotlin:${Versions.rxkotlin}"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    val rxandroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxandroid}"
     val rxjavaAdapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptor}"
     val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
     val koinAndroid = "org.koin:koin-android:${Versions.koin}"
+    val koinScope = "org.koin:koin-android-scope:${Versions.koin}"
     val gson = "com.google.code.gson:gson:${Versions.gson}"
     val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
 }
@@ -62,11 +68,14 @@ object SupportLibraries {
     val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     val material = "com.google.android.material:material:${Versions.material}"
     val constraint = "androidx.constraintlayout:constraintlayout:${Versions.constraint}"
+    val navigationFragment = "android.arch.navigation:navigation-fragment:${Versions.navigation}"
+    val navigationUi = "android.arch.navigation:navigation-ui:${Versions.navigation}"
+    val multiDex = "androidx.multidex:multidex:${Versions.multiDex}"
+    val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
 }
 
 object TestLibraries {
     val junit = "junit:junit:${Versions.junit}"
-    val assertjCore = "org.assertj:assertj-core:${Versions.assertjCore}"
     val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"
     val mockitoInline = "org.mockito:mockito-inline:${Versions.mockitoInline}"
 }
