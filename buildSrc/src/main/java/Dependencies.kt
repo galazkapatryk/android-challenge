@@ -7,10 +7,11 @@ object Modules {
     val data = ":data"
     val network = ":network"
     val eventRepository = ":eventrepository"
-    val schedule = ":schedule"
+    val schedulescreen = ":schedulescreen"
     val eventscreen = ":eventscreen"
     val playbackscreen = ":playbackscreen"
-    val androidCommon = ":common:android_common"
+    val androidcommon = ":common:androidcommon"
+    val eventdomain = ":eventdomain"
 }
 
 object Releases {
@@ -72,6 +73,7 @@ object SupportLibraries {
     val constraint = "androidx.constraintlayout:constraintlayout:${Versions.constraint}"
     val navigationFragment = "android.arch.navigation:navigation-fragment:${Versions.navigation}"
     val navigationUi = "android.arch.navigation:navigation-ui:${Versions.navigation}"
+    val navigationUiKtx = "android.arch.navigation:navigation-ui-ktx:${Versions.navigation}"
     val multiDex = "androidx.multidex:multidex:${Versions.multiDex}"
     val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
 }

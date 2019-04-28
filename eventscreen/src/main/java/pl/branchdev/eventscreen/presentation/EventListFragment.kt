@@ -4,24 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import io.reactivex.rxkotlin.addTo
 import io.reactivex.subjects.PublishSubject
-import kotlinx.android.synthetic.main.fragment_event_list.*
+import kotlinx.android.synthetic.main.fragment_events.*
 import org.koin.android.ext.android.inject
+import pl.branchdev.android_common.base.BaseFragment
+import pl.branchdev.android_common.utils.showToastError
+import pl.branchdev.eventdomain.model.Event
+import pl.branchdev.eventdomain.presentation.adapter.EventListAdapter
 import pl.branchdev.eventscreen.R
-import pl.branchdev.eventscreen.model.Event
-import pl.branchdev.eventscreen.navigation.EventScreenNavigation
-import pl.branchdev.eventscreen.presentation.adapter.EventListAdapter
+import pl.branchdev.eventscreen.navigation.BaseEventScreenNavigation
 
-class EventListFragment : Fragment(), EventListView {
-    private val navigation: EventScreenNavigation by inject()
+class EventListFragment : BaseFragment(), ClickableEventList {
+    private val navigation: BaseEventScreenNavigation by inject()
     private var eventListItemClicked: PublishSubject<String> = PublishSubject.create()
     private val presenter: EventListPresenter by inject()
     private var eventListAdapter = EventListAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_event_list, container, false)
+        return inflater.inflate(R.layout.fragment_events, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,11 +33,11 @@ class EventListFragment : Fragment(), EventListView {
     }
 
     private fun initView() {
-        fragmentEventListEvents.apply {
+        fragmentEventsListLayout.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = eventListAdapter
         }
-        eventListAdapter.itemClicked.subscribe { eventListItemClicked.onNext(it) }
+        eventListAdapter.itemClicked.subscribe { eventListItemClicked.onNext(it) }.addTo(uiSubscriptionComposite)
     }
 
 
@@ -50,6 +52,7 @@ class EventListFragment : Fragment(), EventListView {
     }
 
     override fun showError() {
+        showToastError()
     }
 
     override fun eventViewClicked() = eventListItemClicked

@@ -10,14 +10,15 @@ import io.reactivex.subjects.PublishSubject
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito
-import pl.branchdev.eventscreen.domain.usecase.BaseEventListUsecase
-import pl.branchdev.eventscreen.model.Event
+import pl.branchdev.data.EventDto
+import pl.branchdev.eventdomain.model.Event
+import pl.branchdev.eventdomain.domain.usecase.BaseEventListUsecase
+import pl.branchdev.eventscreen.presentation.ClickableEventList
 import pl.branchdev.eventscreen.presentation.EventListPresenter
-import pl.branchdev.eventscreen.presentation.EventListView
 
 class EventListPresenterTest {
     private var baseEventListUsecase = Mockito.mock(BaseEventListUsecase::class.java)
-    private var view = Mockito.mock(EventListView::class.java)
+    private var view = Mockito.mock(ClickableEventList::class.java)
     private val eventItemClick: PublishSubject<String> = PublishSubject.create()
     private lateinit var presenter: EventListPresenter
 
@@ -25,6 +26,8 @@ class EventListPresenterTest {
     fun setupTests() {
         RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
         presenter = EventListPresenter(baseEventListUsecase)
+        val dtoList = emptyList<EventDto>()
+        whenever(baseEventListUsecase.eventsDtoObservable()).thenReturn(Single.just(dtoList))
     }
 
     @Test

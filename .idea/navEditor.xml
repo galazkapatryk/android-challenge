@@ -8,7 +8,7 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="eventListFragment">
+                  <entry key="fragmentEvents">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -25,6 +25,18 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="fragmentSchedule">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-206" />
+                            <option name="y" value="232" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

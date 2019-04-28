@@ -9,12 +9,12 @@ import pl.branchdev.eventrepository.MockEventRepository
 val eventRepositoryModule by lazy {
     if (BuildConfig.BUILD_TYPE.contains("mock"))
         module {
-            single<EventRepository> {
+            factory<EventRepository> {
                 MockEventRepository()
             }
         }
     else
         module {
-            single<EventRepository> { ApiEventRepository(get()) }
+            factory<EventRepository> { ApiEventRepository(get()) }
         }
 }

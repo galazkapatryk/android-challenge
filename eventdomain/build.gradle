@@ -1,0 +1,42 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode Releases.versionCode
+        versionName Releases.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Libraries.kotlin
+    implementation Libraries.rxkotlin
+    implementation Libraries.rxjava
+    implementation Libraries.rxandroid
+    implementation SupportLibraries.constraint
+    implementation SupportLibraries.recyclerview
+    implementation SupportLibraries.navigationFragment
+    implementation SupportLibraries.navigationUi
+    testImplementation TestLibraries.mockitoKotlin
+    testImplementation TestLibraries.junit
+    implementation project(path: Modules.eventRepository)
+    implementation project(path: Modules.data)
+    implementation project(path: Modules.androidcommon)
+    implementation SupportLibraries.fragment
+}

@@ -18,7 +18,6 @@
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph"
             app:layout_constraintBottom_toTopOf="@+id/activityMainBottomTab"/>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/activityMainBottomTab"
             android:layout_width="0dp"
