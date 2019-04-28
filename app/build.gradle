@@ -38,11 +38,11 @@ dependencies {
     testImplementation TestLibraries.junit
     implementation SupportLibraries.navigationFragment
     implementation SupportLibraries.navigationUi
+    implementation project(path: Modules.network)
     implementation project(path: Modules.eventRepository)
-    implementation project(path: Modules.data)
     implementation project(path: Modules.androidCommon)
     implementation project(path: Modules.eventscreen)
-    implementation project(path: Modules.network)
+    implementation project(path: Modules.playbackscreen)
     implementation Libraries.glide
     kapt Libraries.glideCompiler
 }

@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/eventrepository/eventrepository.iml" filepath="$PROJECT_DIR$/eventrepository/eventrepository.iml" />
       <module fileurl="file://$PROJECT_DIR$/eventscreen/eventscreen.iml" filepath="$PROJECT_DIR$/eventscreen/eventscreen.iml" />
       <module fileurl="file://$PROJECT_DIR$/network/network.iml" filepath="$PROJECT_DIR$/network/network.iml" />
+      <module fileurl="file://$PROJECT_DIR$/playbackscreen/playbackscreen.iml" filepath="$PROJECT_DIR$/playbackscreen/playbackscreen.iml" />
     </modules>
   </component>
 </project>

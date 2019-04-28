@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
             app:startDestination="@id/eventListFragment">
 
     <fragment android:id="@+id/eventListFragment" android:name="pl.branchdev.eventscreen.presentation.EventListFragment"
-              android:label="EventListFragment"/>
+              android:label="EventListFragment">
+        <action android:id="@+id/action_eventListFragment_to_playbackActivity" app:destination="@id/playbackActivity"
+                app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_enter_anim" app:popExitAnim="@anim/nav_default_exit_anim"/>
+    </fragment>
+    <activity android:id="@+id/playbackActivity" android:name="pl.branchdev.playbackscreen.PlaybackActivity"
+              android:label="PlaybackActivity" app:action="startPlaybackScreen">
+        <argument android:name="VIDEO_URL" app:argType="string" android:defaultValue='""'/>
+    </activity>
 </navigation>
