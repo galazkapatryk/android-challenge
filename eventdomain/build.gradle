@@ -29,7 +29,6 @@ dependencies {
     implementation Libraries.rxkotlin
     implementation Libraries.rxjava
     implementation Libraries.rxandroid
-    implementation Libraries.koinAndroid
     implementation SupportLibraries.constraint
     implementation SupportLibraries.recyclerview
     implementation SupportLibraries.navigationFragment

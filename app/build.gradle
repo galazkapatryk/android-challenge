@@ -35,6 +35,7 @@ dependencies {
     implementation SupportLibraries.constraint
     implementation SupportLibraries.multiDex
     implementation SupportLibraries.fragment
+    implementation SupportLibraries.navigationUiKtx
     testImplementation TestLibraries.junit
     implementation SupportLibraries.navigationFragment
     implementation SupportLibraries.navigationUi
@@ -42,6 +43,7 @@ dependencies {
     implementation project(path: Modules.eventRepository)
     implementation project(path: Modules.androidcommon)
     implementation project(path: Modules.eventscreen)
+    implementation project(path: Modules.schedulescreen)
     implementation project(path: Modules.playbackscreen)
     implementation Libraries.glide
     kapt Libraries.glideCompiler

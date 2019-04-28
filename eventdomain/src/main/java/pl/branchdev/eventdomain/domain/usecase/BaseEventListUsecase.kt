@@ -1,6 +1,6 @@
 package pl.branchdev.eventdomain.domain.usecase
 
-import io.reactivex.Single
+import io.reactivex.Observable
 import pl.branchdev.data.EventDto
 import pl.branchdev.eventdomain.domain.mapper.EventDtoToEventMapper
 import pl.branchdev.eventdomain.model.Event
@@ -14,7 +14,7 @@ abstract class BaseEventListUsecase {
             SimpleDateFormat(EventDtoToEventMapper.API_DATE_FORMAT, Locale.GERMAN).parse(it.date).time
         }
 
-    fun getEvents(): Single<List<Event>> {
+    fun getEvents(): Observable<List<Event>> {
         return eventsDtoObservable()
             .map { orderByDateAscending(it) }
             .map { eventsDtoList -> eventsDtoList.map { EventDtoToEventMapper.mapToEvent(it) } }
@@ -23,5 +23,5 @@ abstract class BaseEventListUsecase {
     private fun orderByDateAscending(unorderedList: List<EventDto>): List<EventDto> =
         unorderedList.sortedWith(dateComperator)
 
-    abstract fun eventsDtoObservable(): Single<List<EventDto>>
+    abstract fun eventsDtoObservable(): Observable<List<EventDto>>
 }

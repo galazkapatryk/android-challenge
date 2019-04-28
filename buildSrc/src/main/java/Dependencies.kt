@@ -73,6 +73,7 @@ object SupportLibraries {
     val constraint = "androidx.constraintlayout:constraintlayout:${Versions.constraint}"
     val navigationFragment = "android.arch.navigation:navigation-fragment:${Versions.navigation}"
     val navigationUi = "android.arch.navigation:navigation-ui:${Versions.navigation}"
+    val navigationUiKtx = "android.arch.navigation:navigation-ui-ktx:${Versions.navigation}"
     val multiDex = "androidx.multidex:multidex:${Versions.multiDex}"
     val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
 }

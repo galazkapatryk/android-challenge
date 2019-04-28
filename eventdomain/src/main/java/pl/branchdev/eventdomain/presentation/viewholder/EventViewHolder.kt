@@ -1,4 +1,4 @@
-package pl.branchdev.eventscreen.presentation.viewholder
+package pl.branchdev.eventdomain.presentation.viewholder
 
 import android.view.View
 import kotlinx.android.synthetic.main.item_event.view.*

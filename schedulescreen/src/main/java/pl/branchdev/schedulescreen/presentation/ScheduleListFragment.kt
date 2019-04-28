@@ -1,4 +1,4 @@
-package pl.branchdev.eventscreen.presentation
+package pl.branchdev.schedulescreen.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,22 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import io.reactivex.subjects.PublishSubject
-import kotlinx.android.synthetic.main.fragment_events.*
+import kotlinx.android.synthetic.main.fragment_schedule.*
 import org.koin.android.ext.android.inject
 import pl.branchdev.eventdomain.model.Event
+import pl.branchdev.eventdomain.presentation.BaseEventListView
 import pl.branchdev.eventdomain.presentation.adapter.EventListAdapter
-import pl.branchdev.eventscreen.R
-import pl.branchdev.eventscreen.navigation.BaseEventScreenNavigation
+import pl.branchdev.schedulescreen.R
 
-class EventListFragment : Fragment(), ClickableEventList {
-    private val navigation: BaseEventScreenNavigation by inject()
-    private var eventListItemClicked: PublishSubject<String> = PublishSubject.create()
-    private val presenter: EventListPresenter by inject()
+class ScheduleListFragment : Fragment(), BaseEventListView {
+    private val presenter: ScheduleListPresenter by inject()
     private var eventListAdapter = EventListAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_events, container, false)
+        return inflater.inflate(R.layout.fragment_schedule, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,11 +28,10 @@ class EventListFragment : Fragment(), ClickableEventList {
     }
 
     private fun initView() {
-        fragmentEventsListLayout.apply {
+        fragmentScheduleListLayout.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = eventListAdapter
         }
-        eventListAdapter.itemClicked.subscribe { eventListItemClicked.onNext(it) }
     }
 
 
@@ -51,11 +47,4 @@ class EventListFragment : Fragment(), ClickableEventList {
 
     override fun showError() {
     }
-
-    override fun eventViewClicked() = eventListItemClicked
-
-    override fun openVideoView(videoUrl: String) {
-        navigation.startPlaybackScreen(videoUrl)
-    }
-
 }

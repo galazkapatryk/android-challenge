@@ -39,5 +39,6 @@ dependencies {
     implementation project(path: Modules.eventRepository)
     implementation project(path: Modules.data)
     implementation project(path: Modules.androidcommon)
+    implementation project(path: Modules.eventdomain)
     implementation SupportLibraries.fragment
 }

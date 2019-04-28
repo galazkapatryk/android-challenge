@@ -1,12 +1,12 @@
-package pl.branchdev.eventscreen.presentation.adapter
+package pl.branchdev.eventdomain.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.subjects.PublishSubject
+import pl.branchdev.eventdomain.R
 import pl.branchdev.eventdomain.model.Event
-import pl.branchdev.eventscreen.R
-import pl.branchdev.eventscreen.presentation.viewholder.EventViewHolder
+import pl.branchdev.eventdomain.presentation.viewholder.EventViewHolder
 
 class EventListAdapter : RecyclerView.Adapter<EventViewHolder>() {
     var adapterItems = listOf<Event>()
