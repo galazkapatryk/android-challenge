@@ -11,7 +11,7 @@ object Modules {
     val eventscreen = ":eventscreen"
     val playbackscreen = ":playbackscreen"
     val androidcommon = ":common:androidcommon"
-    val eventdomain = ":eventdomain"
+    val eventcommon = ":eventcommon"
 }
 
 object Releases {

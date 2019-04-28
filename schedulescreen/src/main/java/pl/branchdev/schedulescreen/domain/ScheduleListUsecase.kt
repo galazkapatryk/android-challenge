@@ -8,11 +8,11 @@ import java.util.concurrent.TimeUnit
 
 class ScheduleListUsecase(private val eventRepository: EventRepository) : BaseEventListUsecase() {
     companion object {
-        const val SCHEDULE_REQUEST_INTERVAL = 2L
+        const val SCHEDULE_REQUEST_SECONDS_INTERVAL = 30L
     }
 
     override fun eventsDtoObservable(): Observable<List<EventDto>> {
-        return Observable.interval(SCHEDULE_REQUEST_INTERVAL, TimeUnit.SECONDS).startWith(1).flatMap {
+        return Observable.interval(SCHEDULE_REQUEST_SECONDS_INTERVAL, TimeUnit.SECONDS).startWith(1).flatMap {
             return@flatMap eventRepository.getSchedule().toObservable()
         }
     }

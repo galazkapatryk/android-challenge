@@ -2,8 +2,7 @@ package pl.branchdev.android_common.base
 
 import io.reactivex.disposables.CompositeDisposable
 
-abstract class BasePresenter<V : MvpView> :
-    MvpPresenter<V> {
+abstract class BasePresenter<V : MvpView> : MvpPresenter<V> {
     var view: V? = null
     var subscriptionCompositeDisposable: CompositeDisposable = CompositeDisposable()
 

@@ -29,9 +29,10 @@ class PlaybackActivity : AppCompatActivity() {
 
     private fun playVideo() {
         videoUrl?.let {
-            videoPlayer = MKPlayer(this)
-            videoPlayer.play(it)
-            videoPlayer.seekTo(savedVideoProgress, false)
+            videoPlayer = MKPlayer(this).apply {
+                play(it)
+                seekTo(savedVideoProgress, false)
+            }
         }
     }
 

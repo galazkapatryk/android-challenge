@@ -7,7 +7,7 @@ import pl.branchdev.eventrepository.EventRepository
 import pl.branchdev.eventrepository.MockEventRepository
 
 val eventRepositoryModule by lazy {
-    if (BuildConfig.BUILD_TYPE.contains("mock"))
+    if (BuildConfig.FLAVOR.contains("mock"))
         module {
             factory<EventRepository> {
                 MockEventRepository()

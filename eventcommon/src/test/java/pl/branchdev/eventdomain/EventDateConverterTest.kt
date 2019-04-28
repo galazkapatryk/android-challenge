@@ -1,6 +1,6 @@
 package pl.branchdev.eventdomain
 
-import junit.framework.Assert
+import junit.framework.Assert.assertTrue
 import org.junit.Test
 import pl.branchdev.eventdomain.domain.mapper.EventDtoToEventMapper
 import pl.branchdev.eventdomain.domain.utils.EventDateConverter
@@ -14,7 +14,7 @@ class EventDateConverterTest {
             SimpleDateFormat(EventDtoToEventMapper.API_DATE_FORMAT, Locale.GERMAN).parse("2019-04-25T01:39:44.970Z")
         val convertDate = SimpleDateFormat(EventDtoToEventMapper.API_DATE_FORMAT, Locale.GERMAN).parse("2019-04-25T16:00:00.970Z")
         val dateInformation = EventDateConverter.convertDateToDateInformation(todayDate, convertDate)
-        Assert.assertTrue(dateInformation == "Today, 16:00")
+        assertTrue(dateInformation == "Today, 16:00")
     }
 
     @Test
@@ -23,7 +23,7 @@ class EventDateConverterTest {
             SimpleDateFormat(EventDtoToEventMapper.API_DATE_FORMAT, Locale.GERMAN).parse("2019-04-25T01:39:44.970Z")
         val convertDate = SimpleDateFormat(EventDtoToEventMapper.API_DATE_FORMAT, Locale.GERMAN).parse("2019-04-24T16:00:00.970Z")
         val dateInformation = EventDateConverter.convertDateToDateInformation(todayDate, convertDate)
-        Assert.assertTrue(dateInformation == "Yesterday, 16:00")
+        assertTrue(dateInformation == "Yesterday, 16:00")
     }
 
     @Test
@@ -32,6 +32,6 @@ class EventDateConverterTest {
             SimpleDateFormat(EventDtoToEventMapper.API_DATE_FORMAT, Locale.GERMAN).parse("2019-04-27T01:39:44.970Z")
         val convertDate = SimpleDateFormat(EventDtoToEventMapper.API_DATE_FORMAT, Locale.GERMAN).parse("2019-03-25T16:00:00.970Z")
         val dateInformation = EventDateConverter.convertDateToDateInformation(todayDate, convertDate)
-        Assert.assertTrue(dateInformation == "25.03.2019")
+        assertTrue(dateInformation == "25.03.2019")
     }
 }

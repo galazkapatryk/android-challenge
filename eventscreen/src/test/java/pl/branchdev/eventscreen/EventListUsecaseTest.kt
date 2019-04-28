@@ -17,7 +17,7 @@ class EventListUsecaseTest {
         val usecase = EventListUsecase(mockedEventRepository)
         val eventLists = emptyList<EventDto>()
         whenever(mockedEventRepository.getEvents()).thenReturn(Single.just(eventLists))
-        val usecaseReturn = usecase.getEvents().blockingGet()
+        val usecaseReturn = usecase.getEvents().blockingFirst()
         assertTrue(usecaseReturn.isEmpty())
     }
 
@@ -35,8 +35,8 @@ class EventListUsecaseTest {
             )
         }
         whenever(mockedEventRepository.getEvents()).thenReturn(Single.just(eventLists))
-        val usecaseReturn = usecase.getEvents().blockingGet()
+        val usecaseReturn = usecase.getEvents().blockingFirst()
         assertTrue(usecaseReturn.first().title == "1")
-        assertTrue(usecaseReturn.get(1).title == "0")
+        assertTrue(usecaseReturn[1].title == "0")
     }
 }

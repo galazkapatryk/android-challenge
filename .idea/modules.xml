@@ -10,7 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/android_common/common-android_common.iml" filepath="$PROJECT_DIR$/common/android_common/common-android_common.iml" />
       <module fileurl="file://$PROJECT_DIR$/data/data.iml" filepath="$PROJECT_DIR$/data/data.iml" />
-      <module fileurl="file://$PROJECT_DIR$/eventdomain/eventdomain.iml" filepath="$PROJECT_DIR$/eventdomain/eventdomain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eventcommon/eventcommon.iml" filepath="$PROJECT_DIR$/eventcommon/eventcommon.iml" />
       <module fileurl="file://$PROJECT_DIR$/eventrepository/eventrepository.iml" filepath="$PROJECT_DIR$/eventrepository/eventrepository.iml" />
       <module fileurl="file://$PROJECT_DIR$/eventscreen/eventscreen.iml" filepath="$PROJECT_DIR$/eventscreen/eventscreen.iml" />
       <module fileurl="file://$PROJECT_DIR$/network/network.iml" filepath="$PROJECT_DIR$/network/network.iml" />

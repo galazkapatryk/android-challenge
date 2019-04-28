@@ -14,10 +14,21 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true
         }
     }
+    flavorDimensions "dataSource"
+    productFlavors {
+        mockedData {
+            testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+            dimension "dataSource"
+        }
+        apiData {
+            testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+            dimension "dataSource"
+        }
+    }
+
 
 }
 
@@ -29,7 +40,5 @@ dependencies {
     implementation Libraries.glide
     implementation SupportLibraries.fragment
     implementation SupportLibraries.appcompat
-    implementation SupportLibraries.recyclerview
-    implementation SupportLibraries.navigationFragment
     implementation SupportLibraries.navigationUi
 }

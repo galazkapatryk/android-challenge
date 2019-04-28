@@ -16,8 +16,18 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+        }
+    }
+    flavorDimensions "dataSource"
+    productFlavors {
+        mockedData {
+            testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+            dimension "dataSource"
+        }
+        apiData {
+            testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+            dimension "dataSource"
         }
     }
 
@@ -39,6 +49,6 @@ dependencies {
     implementation project(path: Modules.eventRepository)
     implementation project(path: Modules.data)
     implementation project(path: Modules.androidcommon)
-    implementation project(path: Modules.eventdomain)
+    implementation project(path: Modules.eventcommon)
     implementation SupportLibraries.fragment
 }

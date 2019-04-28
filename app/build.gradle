@@ -19,6 +19,18 @@ android {
             minifyEnabled true
         }
     }
+    flavorDimensions "dataSource"
+    productFlavors {
+        mockedData {
+            applicationIdSuffix = ".mock"
+            testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+            dimension "dataSource"
+        }
+        apiData {
+            testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+            dimension "dataSource"
+        }
+    }
 
     testOptions {
         unitTests.returnDefaultValues = true

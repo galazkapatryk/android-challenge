@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         eventScreenNavigation.bind(navController)
     }
 
-    private fun unBindNavigation() {
+    private fun unbindNavigation() {
         eventScreenNavigation.unbind()
     }
 
@@ -41,6 +41,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        unBindNavigation()
+        unbindNavigation()
     }
 }

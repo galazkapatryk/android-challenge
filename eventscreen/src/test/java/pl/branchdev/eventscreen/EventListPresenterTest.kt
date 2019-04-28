@@ -2,6 +2,7 @@ package pl.branchdev.eventscreen
 
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
+import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.disposables.CompositeDisposable
@@ -11,8 +12,8 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito
 import pl.branchdev.data.EventDto
-import pl.branchdev.eventdomain.model.Event
 import pl.branchdev.eventdomain.domain.usecase.BaseEventListUsecase
+import pl.branchdev.eventdomain.model.Event
 import pl.branchdev.eventscreen.presentation.ClickableEventList
 import pl.branchdev.eventscreen.presentation.EventListPresenter
 
@@ -27,20 +28,13 @@ class EventListPresenterTest {
         RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
         presenter = EventListPresenter(baseEventListUsecase)
         val dtoList = emptyList<EventDto>()
-        whenever(baseEventListUsecase.eventsDtoObservable()).thenReturn(Single.just(dtoList))
-    }
-
-    @Test
-    fun `when presenter get list after view attach then should show list at view`() {
-        val list = emptyList<Event>()
-        whenever(baseEventListUsecase.getEvents()).thenReturn(Single.just(list))
-        presenter.attachView(view)
-        verify(view).showEventsList(list)
+        whenever(baseEventListUsecase.eventsDtoObservable()).thenReturn(Single.just(dtoList).toObservable())
+        Mockito.reset(view)
     }
 
     @Test
     fun `when presenter get error after view attach then should show error at view`() {
-        whenever(baseEventListUsecase.getEvents()).thenReturn(Single.error(Throwable()))
+        whenever(baseEventListUsecase.getEvents()).thenReturn(Observable.error(Throwable()))
         presenter.attachView(view)
         verify(view).showError()
     }
@@ -48,7 +42,7 @@ class EventListPresenterTest {
     @Test
     fun `when user click event item then view should open video screen`() {
         val list = emptyList<Event>()
-        whenever(baseEventListUsecase.getEvents()).thenReturn(Single.just(list))
+        whenever(baseEventListUsecase.getEvents()).thenReturn(Single.just(list).toObservable())
         whenever(view.eventViewClicked()).thenReturn(eventItemClick)
         presenter.attachView(view)
         presenter.subscriptionCompositeDisposable = CompositeDisposable()
