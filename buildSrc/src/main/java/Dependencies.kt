@@ -9,7 +9,7 @@ object Modules {
     val eventRepository = ":eventrepository"
     val schedule = ":schedule"
     val eventscreen = ":eventscreen"
-    val playback = ":playback"
+    val playbackscreen = ":playbackscreen"
     val androidCommon = ":common:android_common"
 }
 
@@ -44,6 +44,7 @@ object Versions {
     val navigation = "1.0.0"
     val multiDex = "2.0.0"
     val fragment = "1.0.0"
+    val mkplayer = "0.1.5"
 }
 
 object Libraries {
@@ -60,6 +61,7 @@ object Libraries {
     val koinScope = "org.koin:koin-android-scope:${Versions.koin}"
     val gson = "com.google.code.gson:gson:${Versions.gson}"
     val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    val mkplayer = "com.github.khizar1556.MKVideoPlayer:mkvideoplayer:${Versions.mkplayer}"
 }
 
 object SupportLibraries {

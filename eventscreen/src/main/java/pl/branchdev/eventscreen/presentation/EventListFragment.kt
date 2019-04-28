@@ -11,9 +11,11 @@ import kotlinx.android.synthetic.main.fragment_event_list.*
 import org.koin.android.ext.android.inject
 import pl.branchdev.eventscreen.R
 import pl.branchdev.eventscreen.model.Event
+import pl.branchdev.eventscreen.navigation.EventScreenNavigation
 import pl.branchdev.eventscreen.presentation.adapter.EventListAdapter
 
 class EventListFragment : Fragment(), EventListView {
+    private val navigation: EventScreenNavigation by inject()
     private var eventListItemClicked: PublishSubject<String> = PublishSubject.create()
     private val presenter: EventListPresenter by inject()
     private var eventListAdapter = EventListAdapter()
@@ -33,6 +35,7 @@ class EventListFragment : Fragment(), EventListView {
             layoutManager = LinearLayoutManager(context)
             adapter = eventListAdapter
         }
+        eventListAdapter.itemClicked.subscribe { eventListItemClicked.onNext(it) }
     }
 
 
@@ -52,6 +55,7 @@ class EventListFragment : Fragment(), EventListView {
     override fun eventViewClicked() = eventListItemClicked
 
     override fun openVideoView(videoUrl: String) {
+        navigation.startPlaybackScreen(videoUrl)
     }
 
 }
