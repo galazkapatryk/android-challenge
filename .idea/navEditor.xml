@@ -8,7 +8,7 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="eventListFragment">
+                  <entry key="fragmentEvents">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -24,12 +24,19 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_eventListFragment_to_scheduleListFragment2">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="fragmentSchedule">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-206" />
+                            <option name="y" value="232" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -42,27 +49,6 @@
                             <option name="x" value="123" />
                             <option name="y" value="-143" />
                           </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="scheduleListFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-206" />
-                            <option name="y" value="232" />
-                          </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_scheduleListFragment_to_eventListFragment2">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

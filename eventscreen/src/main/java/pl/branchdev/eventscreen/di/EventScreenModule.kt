@@ -6,6 +6,6 @@ import pl.branchdev.eventscreen.domain.usecase.EventListUsecase
 import pl.branchdev.eventscreen.presentation.EventListPresenter
 
 val eventScreenModule = module {
-    single<BaseEventListUsecase>("eventListUseCase") { EventListUsecase(get()) }
-    single("eventListPresenter") { EventListPresenter(get("eventListUseCase")) }
+    factory<BaseEventListUsecase>("eventListUseCase") { EventListUsecase(get()) }
+    factory("eventListPresenter") { EventListPresenter(get("eventListUseCase")) }
 }

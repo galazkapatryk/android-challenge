@@ -6,6 +6,6 @@ import pl.branchdev.schedulescreen.domain.ScheduleListUsecase
 import pl.branchdev.schedulescreen.presentation.ScheduleListPresenter
 
 val scheduleScreenModule = module {
-    single<BaseEventListUsecase>("scheduleUseCase") { ScheduleListUsecase(get()) }
-    single("scheduleListPresenter") { ScheduleListPresenter(get("scheduleUseCase")) }
+    factory<BaseEventListUsecase>("scheduleUseCase") { ScheduleListUsecase(get()) }
+    factory("scheduleListPresenter") { ScheduleListPresenter(get("scheduleUseCase")) }
 }
