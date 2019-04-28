@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.subjects.PublishSubject
+import pl.branchdev.eventdomain.model.Event
 import pl.branchdev.eventscreen.R
-import pl.branchdev.eventscreen.model.Event
 import pl.branchdev.eventscreen.presentation.viewholder.EventViewHolder
 
 class EventListAdapter : RecyclerView.Adapter<EventViewHolder>() {

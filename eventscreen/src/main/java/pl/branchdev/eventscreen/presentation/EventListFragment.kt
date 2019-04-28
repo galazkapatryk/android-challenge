@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.fragment_event_list.*
 import org.koin.android.ext.android.inject
+import pl.branchdev.eventdomain.model.Event
 import pl.branchdev.eventscreen.R
-import pl.branchdev.eventscreen.model.Event
-import pl.branchdev.eventscreen.navigation.EventScreenNavigation
+import pl.branchdev.eventscreen.navigation.BaseEventScreenNavigation
 import pl.branchdev.eventscreen.presentation.adapter.EventListAdapter
 
-class EventListFragment : Fragment(), EventListView {
-    private val navigation: EventScreenNavigation by inject()
+class EventListFragment : Fragment(), ClickableEventList {
+    private val navigation: BaseEventScreenNavigation by inject()
     private var eventListItemClicked: PublishSubject<String> = PublishSubject.create()
     private val presenter: EventListPresenter by inject()
     private var eventListAdapter = EventListAdapter()

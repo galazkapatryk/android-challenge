@@ -1,48 +1,43 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion Versions.compileSdk
+
 
     defaultConfig {
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
         versionCode Releases.versionCode
         versionName Releases.versionName
-        multiDexEnabled true
     }
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
-    testOptions {
-        unitTests.returnDefaultValues = true
-    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Libraries.kotlin
+    implementation Libraries.rxkotlin
+    implementation Libraries.rxjava
+    implementation Libraries.rxandroid
     implementation Libraries.koinAndroid
-    implementation Libraries.koinScope
-    implementation SupportLibraries.appcompat
-    implementation SupportLibraries.material
     implementation SupportLibraries.constraint
-    implementation SupportLibraries.multiDex
-    implementation SupportLibraries.fragment
-    testImplementation TestLibraries.junit
+    implementation SupportLibraries.recyclerview
     implementation SupportLibraries.navigationFragment
     implementation SupportLibraries.navigationUi
-    implementation project(path: Modules.network)
+    testImplementation TestLibraries.mockitoKotlin
+    testImplementation TestLibraries.junit
     implementation project(path: Modules.eventRepository)
+    implementation project(path: Modules.data)
     implementation project(path: Modules.androidcommon)
-    implementation project(path: Modules.eventscreen)
-    implementation project(path: Modules.playbackscreen)
-    implementation Libraries.glide
-    kapt Libraries.glideCompiler
+    implementation SupportLibraries.fragment
 }

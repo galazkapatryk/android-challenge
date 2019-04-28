@@ -1,14 +1,14 @@
 package pl.branchdev.challenge.di
 
-import androidx.navigation.NavController
-import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module.module
-import pl.branchdev.challenge.Navigation
-import pl.branchdev.eventscreen.navigation.EventScreenNavigation
+import pl.branchdev.challenge.navigation.BaseMainScreenNavigation
+import pl.branchdev.challenge.navigation.EventScreenNavigation
+import pl.branchdev.challenge.navigation.MainScreenNavigation
+import pl.branchdev.eventscreen.navigation.BaseEventScreenNavigation
 
 object AppModules {
     val navigationModule = module {
-        single<EventScreenNavigation> { Navigation() }
-        single { NavController(androidContext()) }
+        single<BaseEventScreenNavigation> { EventScreenNavigation() }
+        single<BaseMainScreenNavigation> { MainScreenNavigation() }
     }
 }

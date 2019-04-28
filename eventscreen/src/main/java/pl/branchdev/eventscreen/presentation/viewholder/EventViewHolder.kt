@@ -4,7 +4,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.item_event.view.*
 import pl.branchdev.android_common.base.BaseViewHolder
 import pl.branchdev.android_common.utils.loadImageFromUrl
-import pl.branchdev.eventscreen.model.Event
+import pl.branchdev.eventdomain.model.Event
 
 class EventViewHolder(itemView: View) : BaseViewHolder<Event>(itemView) {
 

@@ -7,10 +7,11 @@ object Modules {
     val data = ":data"
     val network = ":network"
     val eventRepository = ":eventrepository"
-    val schedule = ":schedule"
+    val schedulescreen = ":schedulescreen"
     val eventscreen = ":eventscreen"
     val playbackscreen = ":playbackscreen"
-    val androidCommon = ":common:android_common"
+    val androidcommon = ":common:androidcommon"
+    val eventdomain = ":eventdomain"
 }
 
 object Releases {

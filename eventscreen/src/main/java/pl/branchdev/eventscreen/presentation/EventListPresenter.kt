@@ -1,22 +1,15 @@
 package pl.branchdev.eventscreen.presentation
 
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
-import io.reactivex.schedulers.Schedulers
-import pl.branchdev.android_common.base.BasePresenter
-import pl.branchdev.eventscreen.domain.usecase.BaseEventListUsecase
+import pl.branchdev.eventdomain.domain.usecase.BaseEventListUsecase
+import pl.branchdev.eventdomain.presentation.BaseEventListPresenter
 
 
-class EventListPresenter(private val eventListUsecase: BaseEventListUsecase) : BasePresenter<EventListView>() {
-    override fun attachView(view: EventListView) {
+class EventListPresenter(eventListUsecase: BaseEventListUsecase) :
+    BaseEventListPresenter<ClickableEventList>(eventListUsecase) {
+    override fun attachView(view: ClickableEventList) {
         super.attachView(view)
         subscribeToUiEvents()
-        eventListUsecase.getEvents().subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread()).subscribe({
-                this.view?.showEventsList(it)
-            }, {
-                this.view?.showError()
-            }).addTo(subscriptionCompositeDisposable)
     }
 
     private fun subscribeToUiEvents() {

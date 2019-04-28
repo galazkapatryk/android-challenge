@@ -1,7 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion Versions.compileSdk
@@ -26,19 +24,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Libraries.kotlin
-    implementation Libraries.rxkotlin
     implementation Libraries.rxjava
-    implementation Libraries.rxandroid
-    implementation Libraries.koinAndroid
-    implementation SupportLibraries.constraint
+    implementation Libraries.rxkotlin
+    implementation Libraries.glide
+    implementation SupportLibraries.fragment
+    implementation SupportLibraries.appcompat
     implementation SupportLibraries.recyclerview
     implementation SupportLibraries.navigationFragment
     implementation SupportLibraries.navigationUi
-    testImplementation TestLibraries.mockitoKotlin
-    testImplementation TestLibraries.junit
-    implementation project(path: Modules.eventRepository)
-    implementation project(path: Modules.data)
-    implementation project(path: Modules.androidcommon)
-    implementation project(path: Modules.eventdomain)
-    implementation SupportLibraries.fragment
 }
