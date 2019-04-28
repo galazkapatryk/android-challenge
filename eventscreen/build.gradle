@@ -38,7 +38,6 @@ dependencies {
     implementation project(path: Modules.data)
     implementation project(path: Modules.androidCommon)
     implementation SupportLibraries.fragment
-    implementation Libraries.glide
     kapt Libraries.glideCompiler
 
 }

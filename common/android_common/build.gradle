@@ -26,6 +26,7 @@ dependencies {
     implementation Libraries.kotlin
     implementation Libraries.rxjava
     implementation Libraries.rxkotlin
+    implementation Libraries.glide
     implementation SupportLibraries.fragment
     implementation SupportLibraries.appcompat
     implementation SupportLibraries.recyclerview
